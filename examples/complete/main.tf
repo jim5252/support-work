@@ -19,7 +19,7 @@ module "opensearch" {
   cluster_version       = "1.3"
   master_instance_count = 1
   master_instance_type  = "r6gd.large.search"
-  warm_instance_type    = "t3.small.search"
+  warm_instance_type    = "ultrawarm1.medium.elasticsearch"
 
 
   saml_entity_id        = var.saml_entity_id
