@@ -11,20 +11,18 @@ provider "elasticsearch" {
 }
 
 module "opensearch" {
-  source = "idealo/opensearch/aws"
+  source  = "idealo/opensearch/aws"
   version = "1.0.0"
 
-  cluster_name    = var.cluster_name
-  cluster_domain  = var.cluster_domain
-  cluster_version = "1.3"
+  cluster_name          = var.cluster_name
+  cluster_domain        = var.cluster_domain
+  cluster_version       = "1.3"
+  master_instance_count = 1
+  master_instance_type  = "t3.small.search"
+  warm_instance_type    = "t3.small.search"
+
 
   saml_entity_id        = var.saml_entity_id
   saml_metadata_content = data.http.saml_metadata.body
   saml_session_timeout  = 120
-
-  index_files          = fileset(path.module, "indices/*.{yml,yaml}")
-  index_template_files = fileset(path.module, "index-templates/*.{yml,yaml}")
-  ism_policy_files     = fileset(path.module, "ism-policies/*.{yml,yaml}")
-  role_files           = fileset(path.module, "roles/*.{yml,yaml}")
-  role_mapping_files   = fileset(path.module, "role-mappings/*.{yml,yaml}")
 }
