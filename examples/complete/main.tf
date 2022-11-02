@@ -18,7 +18,7 @@ module "opensearch" {
   cluster_domain        = var.cluster_domain
   cluster_version       = "1.3"
   master_instance_count = 1
-  master_instance_type  = "t3.small.search"
+  master_instance_type  = "r6gd.large.search"
   warm_instance_type    = "t3.small.search"
 
 
