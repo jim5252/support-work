@@ -14,7 +14,7 @@ provider "elasticsearch" {
 }
 
 module "opensearch" {
-  source  = "idealo/opensearch/aws"
+  source  = "../../"
   version = "1.0.0"
 
   cluster_name            = var.cluster_name
