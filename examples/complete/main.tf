@@ -2,6 +2,9 @@ data "aws_region" "current" {}
 
 data "http" "saml_metadata" {
   url = var.saml_metadata_url
+  request_headers = {
+    Accept = "application/xml"
+  }
 }
 
 provider "elasticsearch" {
