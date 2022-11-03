@@ -17,9 +17,13 @@ module "opensearch" {
   source  = "idealo/opensearch/aws"
   version = "1.0.0"
 
-  cluster_name          = var.cluster_name
-  cluster_domain        = var.cluster_domain
-  cluster_version       = "1.3"
+  cluster_name            = var.cluster_name
+  cluster_domain          = var.cluster_domain
+  cluster_version         = "1.3"
+  master_instance_enabled = false
+  warm_instance_enabled   = false
+  hot_instance_type       = "t3.small.search"
+
 
   saml_entity_id        = var.saml_entity_id
   saml_metadata_content = data.http.saml_metadata.body
