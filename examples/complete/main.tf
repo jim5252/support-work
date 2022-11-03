@@ -14,7 +14,7 @@ provider "elasticsearch" {
 }
 
 module "opensearch" {
-  source  = "../../"
+  source  = "https://github.com/jim5252/support-work.git?ref=master"
 
   cluster_name            = var.cluster_name
   cluster_domain          = var.cluster_domain
