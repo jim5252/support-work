@@ -20,10 +20,6 @@ module "opensearch" {
   cluster_name          = var.cluster_name
   cluster_domain        = var.cluster_domain
   cluster_version       = "1.3"
-  master_instance_count = 1
-  master_instance_type  = "r6gd.large.elasticsearch"
-  warm_instance_type    = "ultrawarm1.medium.elasticsearch"
-
 
   saml_entity_id        = var.saml_entity_id
   saml_metadata_content = data.http.saml_metadata.body
