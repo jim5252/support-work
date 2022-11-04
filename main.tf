@@ -14,7 +14,7 @@ provider "elasticsearch" {
 }
 
 module "opensearch" {
-  source  = "modules/."
+  source  = "./modules/"
 
   cluster_name            = var.cluster_name
   cluster_domain          = var.cluster_domain
