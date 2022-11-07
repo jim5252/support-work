@@ -5,7 +5,7 @@ output "cluster_name" {
 
 output "cluster_version" {
   description = "The version of the OpenSearch cluster."
-  value       = replace(aws_opensearch_domain.opensearch.elasticsearch_version, "OpenSearch_", "")
+  value       = replace(aws_opensearch_domain.opensearch.engine_version, "OpenSearch_", "")
 }
 
 output "cluster_endpoint" {
