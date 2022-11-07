@@ -15,9 +15,9 @@ resource "aws_iam_service_linked_role" "es" {
   aws_service_name = "es.amazonaws.com"
 }
 
-resource "aws_elasticsearch_domain" "opensearch" {
+resource "aws_opensearch_domain" "opensearch" {
   domain_name           = var.cluster_name
-  elasticsearch_version = "OpenSearch_${var.cluster_version}"
+  engine_version = "OpenSearch_${var.cluster_version}"
   access_policies       = data.aws_iam_policy_document.access_policy.json
 
   cluster_config {
