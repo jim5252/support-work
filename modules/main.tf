@@ -12,7 +12,7 @@ module "acm" {
 
 resource "aws_iam_service_linked_role" "es" {
   count            = var.create_service_role ? 1 : 0
-  aws_service_name = "opensearch.amazonaws.com"
+  aws_service_name = "es.amazonaws.com"
 }
 
 resource "aws_elasticsearch_domain" "opensearch" {
