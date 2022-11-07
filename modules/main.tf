@@ -16,9 +16,9 @@ resource "aws_iam_service_linked_role" "es" {
 }
 
 resource "aws_opensearch_domain" "opensearch" {
-  domain_name           = var.cluster_name
-  engine_version = "OpenSearch_${var.cluster_version}"
-  access_policies       = data.aws_iam_policy_document.access_policy.json
+  domain_name     = var.cluster_name
+  engine_version  = "OpenSearch_${var.cluster_version}"
+  access_policies = data.aws_iam_policy_document.access_policy.json
 
   cluster_config {
     dedicated_master_enabled = var.master_instance_enabled
@@ -39,6 +39,10 @@ resource "aws_opensearch_domain" "opensearch" {
       content {
         availability_zone_count = zone_awareness_config.value
       }
+    }
+    ebs_options {
+    ebs_enabled = true
+    volume_size = 10
     }
   }
 
