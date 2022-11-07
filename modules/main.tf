@@ -64,6 +64,11 @@ resource "aws_opensearch_domain" "opensearch" {
     enabled = true
   }
 
+  ebs_options {
+    ebs_enabled = true
+    volume_size = 10
+  }
+
   encrypt_at_rest {
     enabled    = true
     kms_key_id = var.encrypt_kms_key_id
