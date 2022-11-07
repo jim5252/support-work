@@ -40,10 +40,6 @@ resource "aws_opensearch_domain" "opensearch" {
         availability_zone_count = zone_awareness_config.value
       }
     }
-    ebs_options {
-    ebs_enabled = true
-    volume_size = 10
-    }
   }
 
   advanced_security_options {
