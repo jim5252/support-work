@@ -20,7 +20,6 @@ module "opensearch" {
   cluster_domain          = var.cluster_domain
   cluster_version         = "1.3"
   master_instance_enabled = false
-  master_user_arn         = "arn:aws:iam::795502215660:user/opensearch-master-user"
   warm_instance_enabled   = false
   hot_instance_type       = "t3.small.search"
   ebs_enabled             = true
