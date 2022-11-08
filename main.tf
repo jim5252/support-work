@@ -24,6 +24,7 @@ module "opensearch" {
   hot_instance_type       = "t3.small.search"
   ebs_enabled             = true
   ebs_volume_size         = 10
+  create_service_role     = false
 
   saml_entity_id        = var.saml_entity_id
   saml_metadata_content = data.http.saml_metadata.body
