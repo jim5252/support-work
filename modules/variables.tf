@@ -202,3 +202,15 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "ebs_enabled" {
+  description = "Enable EBS Volumes storage"
+  type        = bool
+  default     = true
+}
+
+variable "ebs_volume_size" {
+  description = "A map of tags to add to all resources."
+  type        = number
+  default     = 10
+}

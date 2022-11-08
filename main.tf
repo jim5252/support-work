@@ -22,8 +22,9 @@ module "opensearch" {
   master_instance_enabled = false
   master_user_arn         = "arn:aws:iam::795502215660:user/opensearch-master-user"
   warm_instance_enabled   = false
-  hot_instance_type       = "t3.medium.search"
-
+  hot_instance_type       = "t3.small.search"
+  ebs_enabled             = true
+  ebs_volume_size         = 10
 
   saml_entity_id        = var.saml_entity_id
   saml_metadata_content = data.http.saml_metadata.body
