@@ -4,8 +4,8 @@ locals {
 
 data "archive_file" "decompress_object" {
   type        = "zip"
-  source_file = "s3-decompressor.py"
-  output_path = "s3-decompressor.zip"
+  source_file = "${path.module}/s3-decompressor.py"
+  output_path = "${path.module}/s3-decompressor.zip"
 }
 
 module "lambda" {
