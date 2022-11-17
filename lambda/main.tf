@@ -12,7 +12,7 @@ module "lambda" {
   source  = "terraform-aws-modules/lambda/aws"
   version =  "4.7.1"
 
-  source_path = data.archive_file.decompress_object.source_file
+  source_path = data.archive_file.decompress_object.output_path
   create_role =  true
   policy_name = "lambda-role"
   handler = "s3-decompressor.lambda_handler"
