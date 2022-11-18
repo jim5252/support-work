@@ -6,7 +6,7 @@ module "lambda" {
   source  = "terraform-aws-modules/lambda/aws"
   version =  "4.7.1"
 
-  source_path = "${path.module}/lambda/config/s3-decompressor.py"
+  source_path = "${path.module}/config/s3-decompressor.py"
   create_role =  true
   policy_name = "lambda-role"
   handler = "s3-decompressor.lambda_handler"
