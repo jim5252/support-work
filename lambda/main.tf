@@ -2,17 +2,11 @@ locals {
   policy_name = "lambda_role"
 }
 
-data "archive_file" "decompress_object" {
-  type        = "zip"
-  source_file = "${path.module}/config/s3-decompressor.py"
-  output_path = "${path.module}/config/s3-decompressor.zip"
-}
-
 module "lambda" {
   source  = "terraform-aws-modules/lambda/aws"
   version =  "4.7.1"
 
-  source_path = data.archive_file.decompress_object.output_path
+  source_path = "${path.module}/config/s3-decompressor.py"
   create_role =  true
   policy_name = "lambda-role"
   handler = "s3-decompressor.lambda_handler"
