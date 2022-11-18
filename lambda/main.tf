@@ -3,12 +3,10 @@ locals {
 }
 
 module "lambda" {
-  source  = "terraform-aws-modules/lambda/aws"
-  version =  "4.7.1"
+  source  = "cloudposse/lambda-function/aws"
+  version =  "0.4.1"
 
-  source_path = "${path.module}/../config/s3-decompressor.py"
-  create_role =  true
-  policy_name = "lambda-role"
+  filename = "${path.module}/config/s3-decompressor.py"
   handler = "s3-decompressor.lambda_handler"
   runtime = "python3.7"
   timeout = 30
